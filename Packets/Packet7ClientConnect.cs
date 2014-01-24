@@ -113,7 +113,14 @@ namespace com.avilance.Starrybound.Packets
 
             if(!String.IsNullOrEmpty(account))
             {
-                this.client.rejectPreConnected("You need clear the server account field of all text.");
+                //if(!getUserFromCouch(account))
+                //{
+                    StarryboundServer.logInfo('SOMEONE is trying to auth... !');
+                    StarryboundServer.logInfo(account);
+                    StarryboundServer.logInfo('We just let em in!?');
+                //}
+            }else{
+                this.client.rejectPreConnected("You need to register");
                 return false;
             }
 
